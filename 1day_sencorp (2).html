@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>大阪配属確約 1day選考会 | 株式会社セン</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;700;900&family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --orange: #FF6B35;
+    --orange-light: #FF9A6C;
+    --orange-pale: #FFF0E8;
+    --yellow: #FFD166;
+    --navy: #1A1A2E;
+    --navy-mid: #2D2D4E;
+    --cream: #FFFBF5;
+    --text: #2C2C3E;
+    --text-muted: #6B6B8A;
+    --white: #ffffff;
+    --radius: 20px;
+    --radius-sm: 12px;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Zen Kaku Gothic New', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    overflow-x: hidden;
+  }
+
+  /* ========== HEADER ========== */
+  header {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 16px 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255,251,245,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255,107,53,0.15);
+  }
+
+  .logo {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 800;
+    font-size: 22px;
+    color: var(--orange);
+    letter-spacing: -0.5px;
+  }
+
+  .logo span {
+    color: var(--navy);
+    font-size: 12px;
+    font-weight: 400;
+    display: block;
+    letter-spacing: 0.05em;
+    font-family: 'Zen Kaku Gothic New', sans-serif;
+  }
+
+  .header-badge {
+    background: var(--orange);
+    color: white;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 6px 16px;
+    border-radius: 50px;
+    letter-spacing: 0.05em;
+  }
+
+  /* ========== HERO ========== */
+  .hero {
+    min-height: 60vh;
+    background: var(--navy);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding: 80px 24px 40px;
+  }
+
+  .hero-bg-circle {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.08;
+  }
+  .hero-bg-circle.c1 {
+    width: 600px; height: 600px;
+    background: var(--orange);
+    top: -200px; right: -200px;
+  }
+  .hero-bg-circle.c2 {
+    width: 400px; height: 400px;
+    background: var(--yellow);
+    bottom: -100px; left: -100px;
+  }
+
+  .hero-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--orange);
+    color: white;
+    font-size: clamp(16px, 3vw, 22px);
+    font-weight: 900;
+    padding: 14px 36px;
+    border-radius: 50px;
+    letter-spacing: 0.06em;
+    margin-bottom: 28px;
+    animation: fadeInDown 0.6s ease both;
+    box-shadow: 0 0 40px rgba(255,107,53,0.5);
+  }
+
+  .hero-tag::before {
+    content: '';
+    width: 10px; height: 10px;
+    background: white;
+    border-radius: 50%;
+    animation: pulse 1.5s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.4; transform: scale(0.8); }
+  }
+
+  .hero-title {
+    font-size: clamp(36px, 8vw, 72px);
+    font-weight: 900;
+    color: white;
+    text-align: center;
+    line-height: 1.1;
+    letter-spacing: -1px;
+    animation: fadeInUp 0.7s ease 0.1s both;
+    max-width: 800px;
+  }
+
+  .hero-title em {
+    font-style: normal;
+    color: var(--orange-light);
+    display: inline-block;
+  }
+
+  .hero-date-badge {
+    margin-top: 32px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    animation: fadeInUp 0.7s ease 0.3s both;
+  }
+
+  .date-pill {
+    background: var(--orange);
+    color: white;
+    font-size: clamp(18px, 4vw, 28px);
+    font-weight: 700;
+    padding: 12px 32px;
+    border-radius: 50px;
+    letter-spacing: 0.03em;
+  }
+
+  .time-pill {
+    background: rgba(255,255,255,0.12);
+    color: rgba(255,255,255,0.9);
+    font-size: clamp(16px, 3vw, 22px);
+    font-weight: 700;
+    padding: 12px 28px;
+    border-radius: 50px;
+    border: 1px solid rgba(255,255,255,0.2);
+  }
+
+  /* ========== OSAKA HIGHLIGHT ========== */
+  .osaka-highlight {
+    background: var(--navy);
+    padding: 0 24px 60px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .osaka-banner {
+    max-width: 820px;
+    width: 100%;
+    border-radius: var(--radius);
+    border: 2px solid var(--orange);
+    padding: 40px 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+    position: relative;
+    overflow: hidden;
+    background: rgba(255,107,53,0.06);
+  }
+
+  .osaka-banner::before {
+    content: '大阪';
+    position: absolute;
+    right: -20px; top: 50%;
+    transform: translateY(-50%);
+    font-size: 180px;
+    font-weight: 900;
+    color: rgba(255,107,53,0.06);
+    line-height: 1;
+    pointer-events: none;
+    letter-spacing: -8px;
+  }
+
+  .osaka-banner-left {
+    flex: 1;
+  }
+
+  .osaka-banner-eyebrow {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--orange-light);
+    margin-bottom: 12px;
+  }
+
+  .osaka-banner-title {
+    font-size: clamp(28px, 5vw, 48px);
+    font-weight: 900;
+    color: white;
+    line-height: 1.15;
+    letter-spacing: -0.5px;
+  }
+
+  .osaka-banner-title span {
+    color: var(--orange-light);
+    border-bottom: 3px solid var(--orange);
+    padding-bottom: 2px;
+  }
+
+  .osaka-banner-desc {
+    font-size: 15px;
+    color: rgba(255,255,255,0.6);
+    margin-top: 16px;
+    line-height: 1.7;
+    max-width: 360px;
+  }
+
+  .osaka-banner-right {
+    flex-shrink: 0;
+  }
+
+  .osaka-stamp {
+    width: 120px; height: 120px;
+    border-radius: 50%;
+    border: 3px solid var(--orange);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: rgba(255,107,53,0.12);
+    animation: spin-slow 12s linear infinite;
+  }
+
+  .osaka-stamp-main {
+    font-size: 28px;
+    font-weight: 900;
+    color: var(--orange-light);
+    line-height: 1;
+  }
+
+  .osaka-stamp-sub {
+    font-size: 10px;
+    font-weight: 700;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 0.1em;
+    margin-top: 4px;
+  }
+
+  @keyframes spin-slow {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  @media (max-width: 600px) {
+    .osaka-banner { flex-direction: column; padding: 28px 24px; }
+    .osaka-banner-right { display: none; }
+  }
+
+  /* ========== VIDEO SECTION ========== */
+  .video-section {
+    background: var(--navy);
+    padding: 0 24px 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .video-wrapper {
+    width: 100%;
+    max-width: 820px;
+    border-radius: var(--radius);
+    overflow: hidden;
+    border: 2px solid rgba(255,107,53,0.3);
+    position: relative;
+    aspect-ratio: 16/9;
+  }
+
+  .video-wrapper iframe {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+
+  /* ========== SECTION COMMON ========== */
+  .section {
+    padding: 80px 24px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Outfit', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 16px;
+  }
+
+  .section-label::before {
+    content: '';
+    display: block;
+    width: 24px; height: 2px;
+    background: var(--orange);
+    border-radius: 2px;
+  }
+
+  .section-title {
+    font-size: clamp(26px, 5vw, 42px);
+    font-weight: 900;
+    line-height: 1.2;
+    letter-spacing: -0.5px;
+    margin-bottom: 40px;
+    color: var(--navy);
+  }
+
+  /* ========== INFO CARDS ========== */
+  .info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+    margin-bottom: 60px;
+  }
+
+  .info-card {
+    background: white;
+    border-radius: var(--radius);
+    padding: 28px;
+    border: 1px solid rgba(26,26,46,0.08);
+    transition: transform 0.2s, box-shadow 0.2s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .info-card::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background: var(--orange);
+    border-radius: var(--radius) var(--radius) 0 0;
+  }
+
+  .info-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px rgba(255,107,53,0.12);
+  }
+
+  .info-card-icon {
+    font-size: 32px;
+    margin-bottom: 12px;
+  }
+
+  .info-card-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: var(--orange);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  .info-card-value {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--navy);
+    line-height: 1.4;
+  }
+
+  .info-card-sub {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-top: 6px;
+    line-height: 1.6;
+  }
+
+  /* ========== TIMELINE ========== */
+  .timeline {
+    position: relative;
+    padding-left: 32px;
+  }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 8px; top: 0; bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--orange), var(--yellow));
+    border-radius: 2px;
+  }
+
+  .timeline-item {
+    position: relative;
+    margin-bottom: 32px;
+    animation: fadeInLeft 0.5s ease both;
+  }
+
+  .timeline-item:last-child { margin-bottom: 0; }
+
+  .timeline-dot {
+    position: absolute;
+    left: -28px; top: 4px;
+    width: 16px; height: 16px;
+    background: var(--orange);
+    border-radius: 50%;
+    border: 3px solid var(--cream);
+    box-shadow: 0 0 0 2px var(--orange);
+  }
+
+  .timeline-num {
+    font-family: 'Outfit', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--orange);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+
+  .timeline-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--navy);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .timeline-badge {
+    font-size: 11px;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 50px;
+    background: var(--orange-pale);
+    color: var(--orange);
+  }
+
+  /* ========== LOCATION ========== */
+  .location-card {
+    background: var(--navy);
+    border-radius: var(--radius);
+    padding: 40px;
+    color: white;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .location-card::before {
+    content: '📍';
+    position: absolute;
+    font-size: 160px;
+    right: -20px; bottom: -30px;
+    opacity: 0.06;
+    line-height: 1;
+  }
+
+  .location-card .section-label { color: var(--orange-light); }
+  .location-card .section-label::before { background: var(--orange-light); }
+
+  .location-name {
+    font-size: 30px;
+    font-weight: 900;
+    color: white;
+    margin-bottom: 8px;
+  }
+
+  .location-address {
+    font-size: 15px;
+    color: rgba(255,255,255,0.7);
+    line-height: 1.7;
+    margin-bottom: 20px;
+  }
+
+  .location-access {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255,107,53,0.2);
+    border: 1px solid rgba(255,107,53,0.3);
+    color: var(--orange-light);
+    padding: 10px 20px;
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: 700;
+  }
+
+  /* ========== LINKS ========== */
+  .links-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+  }
+
+  .link-card {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background: white;
+    border-radius: var(--radius-sm);
+    padding: 24px;
+    border: 1.5px solid rgba(26,26,46,0.08);
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.2s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .link-card::after {
+    content: '→';
+    position: absolute;
+    right: 20px; top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+    color: var(--orange);
+    opacity: 0;
+    transition: opacity 0.2s, right 0.2s;
+  }
+
+  .link-card:hover {
+    border-color: var(--orange);
+    background: var(--orange-pale);
+  }
+
+  .link-card:hover::after {
+    opacity: 1;
+    right: 16px;
+  }
+
+  .link-card-icon {
+    font-size: 24px;
+  }
+
+  .link-card-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--navy);
+    padding-right: 28px;
+    line-height: 1.3;
+  }
+
+  .link-card-desc {
+    font-size: 12px;
+    color: var(--text-muted);
+  }
+
+  /* ========== CTA ========== */
+  .cta-section {
+    background: var(--navy);
+    padding: 80px 24px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cta-section::before {
+    content: '';
+    position: absolute;
+    width: 500px; height: 500px;
+    background: var(--orange);
+    border-radius: 50%;
+    top: -250px; left: 50%;
+    transform: translateX(-50%);
+    opacity: 0.06;
+  }
+
+  .cta-title {
+    font-size: clamp(28px, 5vw, 48px);
+    font-weight: 900;
+    color: white;
+    margin-bottom: 16px;
+    line-height: 1.2;
+  }
+
+  .cta-sub {
+    font-size: 16px;
+    color: rgba(255,255,255,0.6);
+    margin-bottom: 40px;
+  }
+
+  .cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--orange);
+    color: white;
+    font-size: 18px;
+    font-weight: 700;
+    padding: 18px 48px;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: all 0.2s;
+    letter-spacing: 0.02em;
+  }
+
+  .cta-btn:hover {
+    background: var(--orange-light);
+    transform: scale(1.03);
+    box-shadow: 0 20px 40px rgba(255,107,53,0.3);
+  }
+
+  /* ========== FOOTER ========== */
+  footer {
+    background: var(--navy);
+    border-top: 1px solid rgba(255,255,255,0.08);
+    padding: 24px;
+    text-align: center;
+    color: rgba(255,255,255,0.4);
+    font-size: 13px;
+  }
+
+  /* ========== ANIMATIONS ========== */
+  @keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fadeInLeft {
+    from { opacity: 0; transform: translateX(-16px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: none;
+  }
+
+  /* ========== DIVIDER ========== */
+  .divider {
+    height: 1px;
+    background: rgba(26,26,46,0.08);
+    margin: 0 auto;
+    max-width: 900px;
+  }
+
+  /* ========== RESPONSIVE ========== */
+  @media (max-width: 600px) {
+    .hero-date-badge { flex-direction: column; gap: 8px; }
+    .date-pill, .time-pill { text-align: center; }
+    header { padding: 12px 20px; }
+    .location-card { padding: 28px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="logo">
+    SENCORPORATION
+    <span>千株式会社</span>
+  </div>
+  <div class="header-badge">新卒採用 2027</div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg-circle c1"></div>
+  <div class="hero-bg-circle c2"></div>
+
+  <div class="hero-tag">🔥 大阪配属確約</div>
+
+  <h1 class="hero-title">
+    <em>１day</em><br>選考会開催！
+  </h1>
+
+  <div class="hero-date-badge">
+    <div class="date-pill">5月26日（火）</div>
+    <div class="time-pill">13:00 〜 16:00</div>
+  </div>
+</section>
+
+<!-- VIDEO -->
+<section class="video-section">
+  <div style="max-width:820px;width:100%;text-align:center;">
+    <a href="https://youtu.be/p4eAmAUIl-Q?si=HFYFTM6tbbNLoohs" target="_blank" rel="noopener"
+      style="display:inline-flex;align-items:center;gap:14px;background:rgba(255,107,53,0.12);border:2px solid var(--orange);color:white;font-size:18px;font-weight:700;padding:20px 48px;border-radius:50px;text-decoration:none;transition:all 0.2s;letter-spacing:0.03em;">
+      <span style="font-size:28px;">▶</span>
+      新卒採用コンセプトムービーはこちら
+    </a>
+  </div>
+</section>
+
+<!-- OSAKA HIGHLIGHT -->
+<section class="osaka-highlight">
+  <div class="osaka-banner">
+    <div class="osaka-banner-left">
+      <div class="osaka-banner-eyebrow">🏙️ Guaranteed Placement</div>
+      <div class="osaka-banner-title">
+        選考通過後は<br><span>大阪配属確約！</span>
+      </div>
+      <div class="osaka-banner-desc">
+        転勤・他拠点への配属なし。<br>
+        大阪で腰を据えてキャリアを築きたい方に、
+        安心してチャレンジいただける選考会です。
+      </div>
+    </div>
+    <div class="osaka-banner-right">
+      <div class="osaka-stamp">
+        <div class="osaka-stamp-main">確約</div>
+        <div class="osaka-stamp-sub">OSAKA</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OVERVIEW -->
+<div class="section reveal">
+  <div class="section-label">Overview</div>
+  <h2 class="section-title">イベント概要</h2>
+
+  <div class="info-grid">
+    <div class="info-card">
+      <div class="info-card-icon">📅</div>
+      <div class="info-card-label">Date</div>
+      <div class="info-card-value">5月26日（火）</div>
+      <div class="info-card-sub">13:00 スタート → 16:00 終了予定</div>
+    </div>
+
+    <div class="info-card">
+      <div class="info-card-icon">📍</div>
+      <div class="info-card-label">Location</div>
+      <div class="info-card-value">西天満 イワイビル</div>
+      <div class="info-card-sub">大阪府大阪市北区西天満3-4-4</div>
+    </div>
+
+    <div class="info-card" style="background: var(--navy); border-color: var(--orange);">
+      <div class="info-card-icon">🎯</div>
+      <div class="info-card-label" style="color: var(--orange-light);">Feature</div>
+      <div class="info-card-value" style="color: white; font-size: 22px;">大阪配属<span style="color: var(--orange-light);">確約</span></div>
+      <div class="info-card-sub" style="color: rgba(255,255,255,0.6);">選考通過後は大阪勤務が確定！<br>転勤なしで安心です。</div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- SCHEDULE -->
+<div class="section reveal">
+  <div class="section-label">Program</div>
+  <h2 class="section-title">当日のスケジュール</h2>
+
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-num">Step 01</div>
+      <div class="timeline-title">会社説明会</div>
+    </div>
+    <div class="timeline-item" style="animation-delay:0.1s">
+      <div class="timeline-dot"></div>
+      <div class="timeline-num">Step 02</div>
+      <div class="timeline-title">先輩社員座談会 <span class="timeline-badge">リアルな声を聞こう</span></div>
+    </div>
+    <div class="timeline-item" style="animation-delay:0.2s">
+      <div class="timeline-dot"></div>
+      <div class="timeline-num">Step 03</div>
+      <div class="timeline-title">1次面接</div>
+    </div>
+    <div class="timeline-item" style="animation-delay:0.3s">
+      <div class="timeline-dot"></div>
+      <div class="timeline-num">Step 04</div>
+      <div class="timeline-title">2次面接 <span class="timeline-badge">当日完結！</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- LOCATION -->
+<div class="section reveal">
+  <div class="section-label">Access</div>
+  <h2 class="section-title">アクセス</h2>
+
+  <div class="location-card">
+    <div class="section-label">会場</div>
+    <div class="location-name">西天満 イワイビル</div>
+    <div class="location-address">
+      〒530-0047<br>
+      大阪府大阪市北区西天満3-4-4
+    </div>
+    <div class="location-access">
+      🚃 大阪天満宮駅（JR東西線）より 徒歩8分
+    </div>
+    <a href="https://maps.app.goo.gl/kmXUFbvfmbfbC46f8" target="_blank" rel="noopener"
+      style="display:inline-flex;align-items:center;gap:8px;margin-top:16px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);color:white;font-size:14px;font-weight:700;padding:10px 24px;border-radius:50px;text-decoration:none;transition:all 0.2s;">
+      🗺️ Googleマップで見る
+    </a>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- LINKS -->
+<div class="section reveal">
+  <div class="section-label">Links</div>
+  <h2 class="section-title">関連リンク</h2>
+
+  <div class="links-grid">
+    <a class="link-card" href="https://sencorp.co.jp/recruit-newgrads/" target="_blank" rel="noopener">
+      <div class="link-card-icon">🏢</div>
+      <div class="link-card-title">新卒採用ページ</div>
+      <div class="link-card-desc">sencorp.co.jp</div>
+    </a>
+    <a class="link-card" href="https://speakerdeck.com/19890310/qian-zhu-shi-hui-she-hui-she-shao-jie-zi-liao-202512" target="_blank" rel="noopener">
+      <div class="link-card-icon">📄</div>
+      <div class="link-card-title">会社説明資料</div>
+      <div class="link-card-desc">speakerdeck.com</div>
+    </a>
+    <a class="link-card" href="https://www.wantedly.com/companies/sencorp/post_articles/1034548" target="_blank" rel="noopener">
+      <div class="link-card-icon">💼</div>
+      <div class="link-card-title">新卒採用について</div>
+      <div class="link-card-desc">Wantedly</div>
+    </a>
+    <a class="link-card" href="https://www.wantedly.com/companies/sencorp/post_articles/1042315" target="_blank" rel="noopener">
+      <div class="link-card-icon">🎤</div>
+      <div class="link-card-title">25新卒インタビュー</div>
+      <div class="link-card-desc">Wantedly</div>
+    </a>
+  </div>
+</div>
+
+<!-- CTA -->
+<section class="cta-section reveal">
+  <h2 class="cta-title">一緒に大阪で<br>働きませんか？</h2>
+  <p class="cta-sub">当日選考完結！まずは気軽に参加してみてください 😊</p>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  © 2026 株式会社セン | 新卒採用 1day選考会
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
